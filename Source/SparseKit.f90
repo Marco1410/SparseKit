@@ -51,7 +51,7 @@
   !                   Subroutine sparse_sparse_sub  ->  Operator:
   !                                                        (-)
   !*************************************************************
-include 'mkl_pardiso.f90'  
+include 'mkl_pardiso.f90'
 module SparseKit
 
   !***********************************************
@@ -59,7 +59,7 @@ module SparseKit
   !***********************************************
   use UtilitiesM
   use quickSortM
-  use mkl_pardiso
+  use mkl_pardiso_private
   
   implicit none
   
@@ -407,7 +407,8 @@ contains
        index = index + 1
     end do
     if(.not.positionExists) then
-       print'(A)', '** Attempted to change the value in a position not allocated before making the CRS, implementation soon maybe **'
+       print'(A)', '** Attempted to change the value in a position not allocated  ' 
+       print'(A)', '   before making the CRS, implementation soon maybe         **'
     end if
   end subroutine change
 
